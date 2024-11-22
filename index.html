@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contador de Dias</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-            background-color: #f4f4f9;
+    <script>
+        // Função para calcular os dias desde 26/10/2023
+        function calcularDias() {
+            // Data de início
+            const dataInicio = new Date("2023-10-26");
+            
+            // Data atual
+            const dataAtual = new Date();
+            
+            // Calculando a diferença em milissegundos
+            const diff = dataAtual - dataInicio;
+            
+            // Convertendo de milissegundos para dias
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            
+            // Atualizando o conteúdo do título
+            document.getElementById("titulo").innerText = `Fazem ${dias} dias que o Denior mente que não fuma mais`;
         }
-        h1 {
-            color: #333;
-        }
-        p {
-            font-size: 20px;
-            color: #555;
-        }
-    </style>
+        
+        // Chamando a função assim que a página carregar
+        window.onload = calcularDias;
+    </script>
 </head>
 <body>
-    <h1>Contador de Dias</h1>
-    <p id="mensagem"></p>
-
-    <script>
-        // Data inicial (26/10/2023)
-        const dataInicial = new Date('2023-10-26');
-
-        // Data atual
-        const dataAtual = new Date();
-
-        // Calcula a diferença em milissegundos e converte para dias
-        const diferencaDias = Math.floor((dataAtual - dataInicial) / (1000 * 60 * 60 * 24));
-
-        // Exibe a mensagem
-        document.getElementById('mensagem').innerText = `Denior está ${diferencaDias} dias sem fumar.`;
-    </script>
+    <h1 id="titulo"></h1>
 </body>
 </html>
